@@ -1,9 +1,9 @@
 import { memo } from "react";
 
-const HomePage = () => {
+const Profile = () => {
   return (
     <div>
-      <h1>HomePage</h1>
+      <h1>ProfileProfile</h1>
       <h1>Header</h1>
       <h1>Body</h1>
       <h1>Footer</h1>
@@ -11,4 +11,4 @@ const HomePage = () => {
   );
 };
 
-export default memo(HomePage);
+export default memo(Profile);

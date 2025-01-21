@@ -1,14 +1,5 @@
 import { memo } from "react";
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>HomePage</h1>
-      <h1>Header</h1>
-      <h1>Body</h1>
-      <h1>Footer</h1>
-    </div>
-  );
-};
+const HomePage = () => {};
 
 export default memo(HomePage);

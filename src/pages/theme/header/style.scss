@@ -1,6 +1,7 @@
 @use "sass:map";
 @import "style/pages/theme";
 
+$banner_Img: "/assets/users/images/hero/banner.jpg";
 .header_top {
   background: #f5f5f5;
   padding: 10px 0 13px;
@@ -12,11 +13,13 @@
 }
 .header_top_left {
   ul {
+    opacity: 1;
     list-style: none;
     display: flex;
     align-items: center;
     padding: 10px 0 13px;
     column-gap: 15px;
+
     li {
       color: map-get($theme-colors, "normal-color");
       column-gap: 3px;
@@ -39,6 +42,10 @@
 
         content: "";
       }
+    }
+
+    &.hidden {
+      opacity: 0;
     }
   }
 }
@@ -165,6 +172,166 @@
         :hover {
           color: map-get($map: $theme-colors, $key: "main");
         }
+      }
+    }
+  }
+}
+
+.hero_category {
+  position: relative;
+
+  .hero_category_all {
+    background: map-get($map: $theme-colors, $key: "main");
+    padding: 15px 25px 15px 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ffff;
+
+    svg,
+    span {
+      font-size: 16px;
+      margin-right: 5px;
+      font-weight: 700;
+    }
+
+    svg {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  ul {
+    border: 1px solid #bebebe;
+    position: absolute;
+    width: 99.4%;
+    list-style: none;
+    background: #ffffff;
+    transition: all 0.2s;
+
+    li {
+      padding: 10px 0;
+      a {
+        text-decoration: none;
+        color: map-get($map: $theme-colors, $key: "normal-text");
+        background-color: transparent;
+        font-size: 16px;
+        display: block;
+        padding-left: 40px;
+      }
+      &:hover {
+        background: #f7f7f7;
+      }
+    }
+  }
+}
+.hero_search_container {
+  .hero_search_form {
+    padding-bottom: 20px;
+    width: 610px;
+    height: 50px;
+    float: left;
+    padding-left: 15px;
+
+    form {
+      display: flex;
+      align-items: center;
+      input {
+        border: none;
+        height: 48px;
+        font-size: 16px;
+        color: #b2b2b2;
+        padding-left: 20px;
+        width: 60%;
+        border: 1px solid #ebebeb;
+        :focus {
+          outline-color: none;
+          border: none;
+        }
+      }
+    }
+
+    button {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 16px 30px 17px;
+      color: #ffff;
+      border: none;
+      background: map-get($map: $theme-colors, $key: "main");
+    }
+  }
+  .hero_search_phone {
+    display: flex;
+    align-items: center;
+
+    .hero_search_phone_icon {
+      font-size: 25px;
+      padding: 10px;
+      background: #f5f5f5;
+      line-height: 50px;
+      padding-right: 10px;
+      text-align: center;
+      border-radius: 50%;
+      float: left;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    p {
+      color: map-get($map: $theme-colors, $key: "normal-text");
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    span {
+      color: #6f6f6f;
+      font-size: 14px;
+    }
+  }
+
+  .hero_item {
+    width: 100%;
+    margin-left: 15px;
+    background-image: url($banner_Img);
+    background-image: no-repeat;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    padding-left: 75px;
+
+    .hero_text {
+      span {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: map-get($map: $theme-colors, $key: "main");
+      }
+      h2 {
+        font-size: 45px;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 52px;
+        color: map-get($map: $theme-colors, $key: "bold-text");
+        margin: 10px 0;
+      }
+      p {
+        font-size: 16px;
+        color: #6f6f6f;
+        font-weight: 400;
+        line-height: 26px;
+        margin: 0 0 15px 0;
+      }
+
+      a {
+        display: inline-block;
+        font-size: 14px;
+        padding: 10px 28px 10px;
+        color: #ffffff;
+        font-weight: 700;
+        background: map-get($map: $theme-colors, $key: "main");
+        text-decoration: none;
       }
     }
   }

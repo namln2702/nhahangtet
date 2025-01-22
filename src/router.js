@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/users/homePage";
 import { ROUTERS } from "./utils/router";
-import MasterLayout from "./pages/theme/masterLayout";
 import ProfilePage from "./pages/users/profilePage";
 
 const renderUserRouter = () => {
@@ -12,6 +11,10 @@ const renderUserRouter = () => {
     },
     {
       path: ROUTERS.USER.PROFILE,
+      component: <ProfilePage />,
+    },
+    {
+      path: ROUTERS.USER.STORE,
       component: <ProfilePage />,
     },
   ];

@@ -1,0 +1,142 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.header_top {
+  background: #f5f5f5;
+  padding: 10px 0 13px;
+  font-size: 18px;
+  color: map-get($theme-colors, "normal-text");
+}
+
+.header_top_left {
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0 13px;
+    column-gap: 15px;
+    li {
+      color: map-get($theme-colors, "normal-color");
+      column-gap: 3px;
+
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 10px;
+    }
+    :first-child {
+      position: relative;
+      &:after {
+        position: absolute;
+        right: -10px;
+        top: 10px;
+        height: 25px;
+        width: 1px;
+        background: #000000;
+        opacity: 0.5;
+
+        content: "";
+      }
+    }
+  }
+}
+
+.header_top_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 0 13px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    column-gap: 5px;
+    a {
+      text-decoration: none;
+      display: inline-block;
+      color: map.get($theme-colors, "normal-text");
+    }
+
+    li:last-child {
+      cursor: pointer;
+      padding-left: 20px;
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.header_cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  padding-top: 10px;
+  ul {
+    list-style: none;
+    margin-left: 20px;
+
+    li {
+      position: relative;
+      text-decoration: none;
+      svg {
+        font-size: 25px;
+        color: map-get($map: $theme-colors, $key: "normal-text");
+      }
+      span {
+        position: absolute;
+        color: white;
+        background: map-get($map: $theme-colors, $key: "main");
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        left: 15px;
+        top: -1px;
+      }
+    }
+  }
+}
+.header_menu {
+  display: flex;
+
+  align-items: center;
+
+  padding: 15px 0;
+  ul {
+    display: flex;
+    list-style: none;
+    column-gap: 35px;
+
+    .active a {
+      color: map-get($map: $theme-colors, $key: "main");
+    }
+
+    a {
+      text-decoration: none;
+      color: map-get($map: $theme-colors, $key: "normal-text");
+    }
+
+    li {
+      list-style: none;
+
+      a {
+        text-transform: uppercase;
+        font-weight: bold;
+        // letter-spacing: 1px;
+        transition: all 0.3s;
+        padding: 5px 0;
+        display: block;
+      }
+    }
+    ul {
+      display: block;
+      list-style: disc;
+    }
+  }
+}

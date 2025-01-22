@@ -41,7 +41,7 @@ const Header = () => {
       <div className="header_top">
         <div className="container">
           <div className="row">
-            <div className="col-6 header_top_left">
+            <div className="col-6 header_top_left col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <ul>
                 <li>
                   <MdOutlineEmail />
@@ -51,7 +51,7 @@ const Header = () => {
                 <li>Mien phi ship hang tu {formatter(200000)}</li>
               </ul>
             </div>
-            <div className="col-6 header_top_right">
+            <div className="col-6 header_top_right col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
               <ul>
                 <li>
                   <Link to={""}>
@@ -101,7 +101,7 @@ const Header = () => {
                   >
                     <Link to={menu.path}>
                       {menu.name}
-                      <ul>
+                      <ul className="header_menu_dropdown">
                         {menu.child.map((child, index) => (
                           <li key={`${child}${index}`}>
                             <Link to={child.path}>{child.name}</Link>

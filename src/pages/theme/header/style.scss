@@ -7,7 +7,9 @@
   font-size: 18px;
   color: map-get($theme-colors, "normal-text");
 }
-
+.header_logo {
+  padding: 5px 0;
+}
 .header_top_left {
   ul {
     list-style: none;
@@ -123,6 +125,7 @@
     }
 
     li {
+      position: relative;
       list-style: none;
 
       a {
@@ -137,6 +140,32 @@
     ul {
       display: block;
       list-style: disc;
+    }
+
+    li:hover .header_menu_dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+    .header_menu_dropdown {
+      background: #222222;
+      position: absolute;
+      width: 180px;
+      z-index: 9;
+      padding: 5px 0;
+      transition: all, 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      li {
+        a {
+          text-transform: capitalize;
+          color: #ffff;
+          font-weight: 400;
+          padding: 5px 15px;
+        }
+        :hover {
+          color: map-get($map: $theme-colors, $key: "main");
+        }
+      }
     }
   }
 }

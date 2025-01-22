@@ -66,3 +66,77 @@
     }
   }
 }
+
+.header_cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  padding-top: 10px;
+  ul {
+    list-style: none;
+    margin-left: 20px;
+
+    li {
+      position: relative;
+      text-decoration: none;
+      svg {
+        font-size: 25px;
+        color: map-get($map: $theme-colors, $key: "normal-text");
+      }
+      span {
+        position: absolute;
+        color: white;
+        background: map-get($map: $theme-colors, $key: "main");
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        left: 15px;
+        top: -1px;
+      }
+    }
+  }
+}
+.header_menu {
+  display: flex;
+
+  align-items: center;
+
+  padding: 15px 0;
+  ul {
+    display: flex;
+    list-style: none;
+    column-gap: 35px;
+
+    .active a {
+      color: map-get($map: $theme-colors, $key: "main");
+    }
+
+    a {
+      text-decoration: none;
+      color: map-get($map: $theme-colors, $key: "normal-text");
+    }
+
+    li {
+      list-style: none;
+
+      a {
+        text-transform: uppercase;
+        font-weight: bold;
+        // letter-spacing: 1px;
+        transition: all 0.3s;
+        padding: 5px 0;
+        display: block;
+      }
+    }
+    ul {
+      display: block;
+      list-style: disc;
+    }
+  }
+}

@@ -13,6 +13,10 @@ const renderUserRouter = () => {
       path: ROUTERS.USER.PROFILE,
       component: <ProfilePage />,
     },
+    {
+      path: ROUTERS.USER.STORE,
+      component: <ProfilePage />,
+    },
   ];
 
   return (

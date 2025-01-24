@@ -1,10 +1,10 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import "./style.scss";
 import { CiFacebook } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import { FaLinkedin } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { formatter } from "utils/formater";
@@ -22,6 +22,7 @@ import { BiUser } from "react-icons/bi";
 import { ROUTERS } from "utils/router";
 
 const Header = () => {
+  const location = useLocation();
   const [isShowCategory, setIsShowCategory] = useState(true);
   const [isShowHumberger, setIsShowHumberger] = useState(true);
   const [menus, setMenus] = useState([
@@ -54,6 +55,22 @@ const Header = () => {
     { name: "BÀI VIẾT", path: "", isShowMenu: false, child: [] },
     { name: "LIÊN HỆ", path: "", isShowMenu: false, child: [] },
   ]);
+  const [isShowHeroItem, setIsShowHeroItem] = useState(
+    location.pathname.length <= 1
+  );
+  const categories = [
+    "Thịt tươi",
+    "Rau củ",
+    "Nước trái cây",
+    "Trái cây",
+    "Hải sản",
+  ];
+
+  useEffect(() => {
+    const isHome = location.pathname.length <= 1;
+    setIsShowCategory(isHome);
+    setIsShowHeroItem(isHome);
+  }, [location.pathname.length]);
   return (
     <>
       <div
@@ -261,21 +278,13 @@ const Header = () => {
             {isShowCategory && (
               <div className={isShowCategory ? "" : "hidden"}>
                 <ul>
-                  <li>
-                    <Link to={""}>Thịt gà</Link>
-                  </li>
-                  <li>
-                    <Link to={""}>Rau củ</Link>
-                  </li>
-                  <li>
-                    <Link to={""}>Nước trái cây</Link>
-                  </li>
-                  <li>
-                    <Link to={""}>Trái cây</Link>
-                  </li>
-                  <li>
-                    <Link to={""}>Hải sản</Link>
-                  </li>
+                  {categories.map((category, index) => {
+                    return (
+                      <li key={index}>
+                        <Link to={"/product"}>{category}</Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
@@ -302,19 +311,22 @@ const Header = () => {
                 <span>Hỗ trợ 24/7</span>
               </div>
             </div>
-            <div className="hero_item">
-              <div className="hero_text">
-                <span>Trái cây tươi</span>
-                <h2>
-                  Rau quả <br />
-                  sạch 100%
-                </h2>
-                <p>Miễn phí giao hàng tận nơi</p>
-                <Link to={""} className="primary-btn">
-                  Mua ngay
-                </Link>
+
+            {isShowHeroItem && (
+              <div className="hero_item">
+                <div className="hero_text">
+                  <span>Trái cây tươi</span>
+                  <h2>
+                    Rau quả <br />
+                    sạch 100%
+                  </h2>
+                  <p>Miễn phí giao hàng tận nơi</p>
+                  <Link to={""} className="primary-btn">
+                    Mua ngay
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
 @use "sass:map";
 @import "responsive";
 @import "theme";
+@import "@fontsource/be-vietnam-pro";
 html,
 body {
   margin: 0;
 }
 
 * {
-  font-family: Roboto;
+  font-family: "Be Vietnam Pro";
   padding: 0;
   margin: 0;
 }
@@ -56,7 +57,14 @@ body {
   height: 100%;
 }
 
-@include Responsive($DESKTOP) {
+@include Responsive($MEDIUM_DEVICE) {
+  .container {
+    max-width: 960px;
+  }
+  .col-xl-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
   .col-xl-3 {
     flex: 0 0 25%;
     max-width: 25%;
@@ -68,6 +76,14 @@ body {
 }
 
 @include Responsive($TABLET_DEVICE) {
+  .container {
+    max-width: 720px;
+  }
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
   .col-md-6 {
     flex: 0 0 50%;
     max-width: 50%;
@@ -80,6 +96,14 @@ body {
 }
 
 @include Responsive($WIDE_MOBILE) {
+  .container {
+    max-width: 540px;
+  }
+
+  .col-sm-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
   .col-sm-6 {
     flex: 0 0 50%;
     max-width: 50%;
@@ -92,6 +116,17 @@ body {
 }
 
 @include Responsive($SMALL_DEVICES) {
+  .container {
+    max-width: 350px;
+  }
+  .col-xs-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-xs-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
   .col-xs-12 {
     flex: 0 0 100%;
     max-width: 100%;
